@@ -10,7 +10,7 @@
 
 - adjacency [W] $\in \mathbb{R}^{n \times n}$;
 
-- parameters [alpha],[beta],[eta],[gamma],[theta] dtype=double;
+- parameters [alpha],[beta],[eta],[gamma],[mu] dtype=double;
 
 - paramter [sig_mul] dtype=int;
 
@@ -31,7 +31,7 @@
 ```matlab
 [B, A, h, E] = func_GOAL(X, Y, d, W, alpha, beta, eta, gamma,
 
-        theta, sig_mul, 4);
+        mu, sig_mul, 4);
         
 low_dimentional_feature = B' * data_matrix;
 ```
