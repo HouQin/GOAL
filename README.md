@@ -14,7 +14,7 @@
 
 - paramter [sig_mul] dtype=int;
 
-- #Iteration [max_Iter], (optimal) $>=4$;
+- #Iteration [max_Iter];
        
 ## Output: 
         
