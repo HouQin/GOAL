@@ -29,9 +29,9 @@
 ## Usage: 
 
 ```matlab
-[B, A, h, E] = func_GOAL(X, Y, d, W, alpha, beta, eta, gamma,
+[B, A, h, E] = func_GOAL(X, Y, d, W, ...
 
-        mu, sig_mul, 4);
+       alpha, beta, eta, gamma, mu, sig_mul, max_Iter);
         
 low_dimentional_feature = B' * data_matrix;
 ```
