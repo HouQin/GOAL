@@ -47,6 +47,16 @@ train_data = func_digahole(train_data,holesize);
 %             if necessary, figure can be applied here.
 train_data = reshape(train_data,[2116,train_n]);
 
+options = [];
+options.NeighborMode = 'Supervised';
+[~, gnd] = max(train_onehot,[],1);
+options.gnd = gnd';
+options.WeightMode = 'HeatKernel';
+options.t = 30;
+W = constructW(train_data', options);
+
+%% Searching the optimal hyperparameters
+
 for i=1:length(dim)
     for j = 1: length(sigma_mul)
 
@@ -58,8 +68,8 @@ for i=1:length(dim)
         score_list = zeros(opts.PopulationSize, 1);
 
         for p = 1:opts.PopulationSize
-            [B_mat,A_mat,h_vec,loss,cap_num,epsilon] = func_GOALfinal(train_data,...
-                            train_onehot,dim(i),alpha(random_matrix(p, 1)),...
+            [B_mat,A_mat,h_vec,~] = func_GOAL(train_data,...
+                            train_onehot,dim(i),W,alpha(random_matrix(p, 1)),...
                             beta(random_matrix(p, 2)),...
                             eta(random_matrix(p, 3)),...
                             gamma(random_matrix(p, 4)),...
@@ -77,35 +87,6 @@ for i=1:length(dim)
         random_matrix = random_matrix(sort_ind, :);
 
         for t = 1:200
-%             % 生成两个不重复的随机整数
-%             num1 = 0;
-%             num2 = 0;
-%             while num1 == num2
-%                 % 生成服从指数分布的随机数
-%                 randNum1 = -log(rand()) * opts.PopulationSize;
-%                 randNum2 = -log(rand()) * opts.PopulationSize;
-%             
-%                 % 将随机数四舍五入为最接近的整数
-%                 num1 = round(randNum1);
-%                 num2 = round(randNum2);
-%             
-%                 % 确保生成的数在1到100的范围内
-%                 if num1 > opts.PopulationSize
-%                     num1 = opts.PopulationSize;
-%                 end
-%                 if num1 < 1
-%                     num1 = 1;
-%                 end
-%                 if num2 > opts.PopulationSize
-%                     num2 = opts.PopulationSize;
-%                 end
-%                 if num2 < 1
-%                     num2 = 1;
-%                 end
-%             end
-%             new_baby = zeros(1, 5);
-%             father = random_matrix(num1, :);
-%             mather = random_matrix(num2, :);
 
             % 生成两个不重复的随机整数
             random_numbers = randbenford(2, opts.PopulationSize, 1, 0, 1);
@@ -127,8 +108,8 @@ for i=1:length(dim)
                 end
             end
 
-            [B_mat,A_mat,h_vec,loss,cap_num,epsilon] = func_GOALfinal(train_data,...
-                            train_onehot,dim(i),alpha(new_baby(1, 1)),...
+            [B_mat,A_mat,h_vec,~] = func_GOAL(train_data,...
+                            train_onehot,dim(i),W,alpha(new_baby(1, 1)),...
                             beta(new_baby(1, 2)),...
                             eta(new_baby(1, 3)),...
                             gamma(new_baby(1, 4)),...

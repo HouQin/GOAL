@@ -48,16 +48,6 @@ train_data = func_digahole(train_data,holesize);
 %             if necessary, figure can be applied here.
 train_data = reshape(train_data,[1600,train_n]);
 
-options = [];
-options.NeighborMode = 'Supervised';
-[~, gnd] = max(train_onehot,[],1);
-options.gnd = gnd';
-options.WeightMode = 'HeatKernel';
-options.t = 30;
-W = constructW(train_data', options);
-
-%% Searching the optimal hyperparameters
-
 for i=1:length(dim)
     for j = 1: length(sigma_mul)
 
@@ -69,8 +59,8 @@ for i=1:length(dim)
         score_list = zeros(opts.PopulationSize, 1);
 
         for p = 1:opts.PopulationSize
-            [B_mat,A_mat,h_vec,~] = func_GOAL(train_data,...
-                            train_onehot,dim(i),W,alpha(random_matrix(p, 1)),...
+            [B_mat,A_mat,h_vec,loss,cap_num,epsilon] = func_GOAL(train_data,...
+                            train_onehot,dim(i),alpha(random_matrix(p, 1)),...
                             beta(random_matrix(p, 2)),...
                             eta(random_matrix(p, 3)),...
                             gamma(random_matrix(p, 4)),...

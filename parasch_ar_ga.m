@@ -56,6 +56,8 @@ options.WeightMode = 'HeatKernel';
 options.t = 30;
 W = constructW(train_data', options);
 
+%% Searching the optimal hyperparameters
+
 for i=1:length(dim)
     for j = 1: length(sigma_mul)
 
