@@ -1,6 +1,6 @@
 # GOAL
 
-<embed src="./overview.pdf" width="600" height="400" type="application/pdf">
+![](./overview.png)
 
 ## Input:
 
