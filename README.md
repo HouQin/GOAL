@@ -1,5 +1,7 @@
 # GOAL
 
+<embed src="./overview.pdf" width="600" height="400" type="application/pdf">
+
 ## Input:
 
 - data matrix [X] $\in \mathbb{R}^{m \times n}$, m features, n samples, dtype=double;
