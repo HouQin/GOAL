@@ -2,7 +2,7 @@ close all;
 clear;
 clc;
 
-%% L20RDR parameter search demo with GA
+%% GOAL parameter search demo with GA
 apart_parm = 0.4;
 holesize = 15;
 sign = 'ORL';

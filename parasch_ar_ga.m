@@ -2,7 +2,7 @@ close all;
 clear;
 clc;
 
-%% L20RDR parameter search demo with GA
+%% GOAL parameter search demo with GA
 apart_parm = 0.4;
 holesize = 15;
 sign = 'AR';
@@ -86,35 +86,6 @@ for i=1:length(dim)
         random_matrix = random_matrix(sort_ind, :);
 
         for t = 1:200
-%             % 生成两个不重复的随机整数
-%             num1 = 0;
-%             num2 = 0;
-%             while num1 == num2
-%                 % 生成服从指数分布的随机数
-%                 randNum1 = -log(rand()) * opts.PopulationSize;
-%                 randNum2 = -log(rand()) * opts.PopulationSize;
-%             
-%                 % 将随机数四舍五入为最接近的整数
-%                 num1 = round(randNum1);
-%                 num2 = round(randNum2);
-%             
-%                 % 确保生成的数在1到100的范围内
-%                 if num1 > opts.PopulationSize
-%                     num1 = opts.PopulationSize;
-%                 end
-%                 if num1 < 1
-%                     num1 = 1;
-%                 end
-%                 if num2 > opts.PopulationSize
-%                     num2 = opts.PopulationSize;
-%                 end
-%                 if num2 < 1
-%                     num2 = 1;
-%                 end
-%             end
-%             new_baby = zeros(1, 5);
-%             father = random_matrix(num1, :);
-%             mather = random_matrix(num2, :);
 
             % 生成两个不重复的随机整数
             random_numbers = randbenford(2, 200, 1, 0, 1);
