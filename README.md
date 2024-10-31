@@ -38,7 +38,7 @@ low_dimentional_feature = B' * data_matrix;
 ```
 
 ## main function
-To get the optimal hyperparameters, one should run **parasch_ar_ga.m**, **parasch_coil100_ga.m**, **parasch_feret_ga.m**, **parasch_orl_ga.m**. In addition, one can search the hyperparameters in the way as **parasch_coil100_beyas.m** with *Optimization Toolbox*.
+To get the optimal hyperparameters, one should run **parasch_ar_ga.m**, **parasch_coil100_ga.m**, **parasch_feret_ga.m**, and **parasch_orl_ga.m**. In addition, one can search the hyperparameters in the way as **parasch_coil100_beyas.m** with *Optimization Toolbox*.
 
 ## Citation
 ```bib
