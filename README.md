@@ -34,3 +34,22 @@
 
 low_dimentional_feature = B' * data_matrix;
 ```
+
+## Citation
+```bib
+@ARTICLE{GOAL2024lu,
+       author={Lu, Haoquan and Lai, Zhihui and Zhang, Junhong and Yu, Zhuozhen and Wen, Jiajun},
+       journal={ IEEE Transactions on Artificial Intelligence },
+       title={{ GOAL: Generalized Jointly Sparse Linear Discriminant Regression for Feature Extraction }},
+       year={2024},
+       volume={5},
+       number={10},
+       ISSN={2691-4581},
+       pages={4959-4971},
+       doi={10.1109/TAI.2024.3412862},
+       url = {https://doi.ieeecomputersociety.org/10.1109/TAI.2024.3412862},
+       publisher={IEEE Computer Society},
+       address={Los Alamitos, CA, USA},
+       month=oct
+}
+```
